@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Página de Departamentos</h2>
+
+    {% for departamento in departamento_list %}
+        <br>
+        <a href="{% url 'update_departamento' departamento.id %}"> {{ departamento }} </a>
+
+    {% endfor %}
+    <br>
+    <br>
+    <a href="{% url 'create_departamento' %}" class="btn btn-info"> Cadastrar Departamento </a>
+
+{% endblock %}

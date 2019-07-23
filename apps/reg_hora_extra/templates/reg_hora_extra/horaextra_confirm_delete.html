@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+    <form method="post"> {% csrf_token %}
+        <h4>Você tem certeza de que deseja excluir o banco de horas do {{ horaextra.funcionario }}?</h4>
+        <br>
+        <button type="submit" class="btn btn-danger">Deletar</button>
+        <a href="{%  url 'list_horaextra' %}" class="btn btn-success"> Cancelar </a>
+
+    </form>
+
+
+{% endblock %}

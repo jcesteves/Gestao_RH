@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Página de funcionarios</h2>
+
+    {% for funcionario in funcionarios_list %}
+        <br>
+        <a href="{% url 'update_funcionario' funcionario.id %}"> {{ funcionario }} </a>
+
+    {% endfor %}
+    <br>
+    <br>
+    <a href="{% url 'create_funcionario' %}" class="btn btn-info"> Cadastrar Funcionario </a>
+
+{% endblock %}

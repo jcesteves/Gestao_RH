@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+    <h2> Editar </h2><br>
+
+    <form method="post"> {% csrf_token %}
+
+        {{ form|bootstrap }}
+
+        <button type="submit" class="btn btn-success"> Salvar</button>
+
+        <a href="{% url 'delete_funcionario' funcionarios.id %}" class="btn btn-danger"> Deletar </a>
+
+    </form>
+    <br>
+
+    <h3> Documentos </h3>
+    <ul>
+        {% for documento in object.documento_set.all %}
+            <li>
+                <a href="{{ documento.documento.url }}"> {{ documento }} </a>
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'documento_create' object.id %}" class="btn btn-primary"> Adicionar Documento </a>
+    <br>
+    <br>
+    <h3> Banco de Horas </h3>
+    <ul>
+        {% for horaextra in object.horaextra_set.all %}
+            <li>
+                <a href="{% url 'update_horaextra' horaextra.id %}">
+
+                    {{ horaextra.motivo }} | {{ horaextra.horas }} hrs
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <h3>Total de horas extras: {{ object.total_hora_extra}}</h3>
+    <br>
+    <a href="{% url 'create_horaextra' %}" class="btn btn-primary"> Novo Banco de Horas </a>
+    <br>
+
+{% endblock %}

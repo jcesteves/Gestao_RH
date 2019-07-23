@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block main %}
+
+    <form method="POST">{% csrf_token %}
+
+        {{ form|bootstrap }}
+
+        <button type="submit" class="btn btn-success"> Salvar</button>
+
+        {% if object.id %}
+            <a href="{% url 'delete_horaextra' object.id %}" class="btn btn-danger"> Deletar </a>
+
+        <button onclick="utilizouhoraextra({{object.id}})" class="btn btn-info" type="button">
+            Marcar como utilizada
+        </button>
+        {% endif %}
+        
+    </form>
+<br>
+<h3 id="horas_atualizadas">{{object.funcionario.total_hora_extra}}..</h3>
+<p id="mensagem"></p>
+
+{% endblock %}
+
+{% block static %}
+    <script src="{% static 'js/jquery.js'%}"></script> 
+    <script src="{% static 'js/funcoes_ajax.js'%}"></script> 
+{% endblock %}
