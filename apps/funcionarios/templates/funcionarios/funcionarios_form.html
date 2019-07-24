@@ -11,9 +11,9 @@
 
         <button type="submit" class="btn btn-success"> Salvar</button>
 
-        <a href="{% url 'delete_funcionario' funcionarios.id %}" class="btn btn-danger"> Deletar </a>
 
     </form>
+     
     <br>
 
     <h3> Documentos </h3>
@@ -25,7 +25,9 @@
             <br>
         {% endfor %}
     </ul>
+    {% if object %}
     <a href="{% url 'documento_create' object.id %}" class="btn btn-primary"> Adicionar Documento </a>
+    {% endif %}
     <br>
     <br>
     <h3> Banco de Horas </h3>

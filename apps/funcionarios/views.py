@@ -26,8 +26,6 @@ class FuncionariosCreate(CreateView):
     model = Funcionarios
     fields = ['nome', 'departamentos']
 
-    def get_success_url(self):
-        return reverse('list_funcionarios')
 
     def form_valid(self, form):
         funcionario = form.save(commit=False)

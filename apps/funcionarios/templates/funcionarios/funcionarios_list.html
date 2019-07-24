@@ -6,7 +6,7 @@
     {% for funcionario in funcionarios_list %}
         <br>
         <a href="{% url 'update_funcionario' funcionario.id %}"> {{ funcionario }} </a>
-
+        <a href="{% url 'delete_funcionario' funcionario.id %}" class='btn btn-danger'>Deletar</a>
     {% endfor %}
     <br>
     <br>
