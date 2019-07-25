@@ -6,10 +6,11 @@
     {% for departamento in departamento_list %}
         <br>
         <a href="{% url 'update_departamento' departamento.id %}"> {{ departamento }} </a>
-
+        <a href="{%  url 'delete_departamento' departamento.id %}" class="btn btn-danger"> Deletar </a>
     {% endfor %}
     <br>
     <br>
-    <a href="{% url 'create_departamento' %}" class="btn btn-info"> Cadastrar Departamento </a>
 
+    <a href="{% url 'create_departamento' %}" class="btn btn-info"> Cadastrar Departamento </a>
+    <a href="{% url 'home'%}" class="btn btn-info">Voltar</a>
 {% endblock %}

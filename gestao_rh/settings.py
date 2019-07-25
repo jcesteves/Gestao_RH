@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'apps.reg_hora_extra',
     'apps.core',
     'bootstrapform',
+    'rest_framework',
 
     
 ]

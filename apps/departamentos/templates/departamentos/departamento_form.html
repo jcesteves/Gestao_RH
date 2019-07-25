@@ -6,7 +6,8 @@
         {{ form|bootstrap }}
         <br>
     <button type="submit" class="btn btn-dark">Salvar</button>
-    <a href="{%  url 'delete_departamento' departamento.id %}" class="btn btn-danger"> Deletar </a>
+    <a href="{% url 'list_departamentos' %}" class="btn btn-info">Voltar</a>
+    
     </form>
 
 {% endblock %}
