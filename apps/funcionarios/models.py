@@ -11,6 +11,7 @@ class Funcionarios(models.Model):
     departamentos = models.ManyToManyField(Departamento)
     empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT,
                                 blank=True, null=True)
+    imagem = models.ImageField()
 
     def get_absolute_url(self):
         return reverse('list_funcionarios')
